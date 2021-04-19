@@ -14,13 +14,13 @@ public class ContaTest extends BaseTest {
 	@Test
 	public void testInserirConta() {
 		menuPage.acessarTelaInserirConta();
-		contasPage.setNome("Itaú");
+		contasPage.setNome("Banco do Brasil");
 		contasPage.salvar();
 		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
 	}
 	@Test
 	public void testAlterarConta() {
-		menuPage.acessarTelaAlterarConta();
+		menuPage.acessarTelaListarContas();
 		contasPage.botaoEditar();
 		contasPage.setNome("Nubank");
 		contasPage.salvar();
@@ -32,5 +32,17 @@ public class ContaTest extends BaseTest {
 		contasPage.setNome("Nubank");
 		contasPage.salvar();
 		Assert.assertEquals("Já existe uma conta com esse nome!", contasPage.obterMensagemErro());
+	}
+	@Test
+	public void testRemoverConta() {
+		menuPage.acessarTelaListarContas();
+		contasPage.botaoRemover();
+		Assert.assertEquals("Conta removida com sucesso!", contasPage.obterMensagemSucesso());
+	}
+	@Test
+	public void testInserirContaVazia() {
+		menuPage.acessarTelaInserirConta();
+		contasPage.salvar();
+		Assert.assertEquals("Informe o nome da conta", contasPage.obterMensagemErro());
 	}
 }

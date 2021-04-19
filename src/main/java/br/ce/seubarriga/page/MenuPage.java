@@ -10,7 +10,7 @@ public class MenuPage extends BasePage {
 		clicar(By.partialLinkText("Contas"));
 		clicar(By.partialLinkText("Adicionar"));
 	}
-	public void acessarTelaAlterarConta() {
+	public void acessarTelaListarContas() {
 		clicar(By.partialLinkText("Contas"));
 		clicar(By.partialLinkText("Listar"));
 	}

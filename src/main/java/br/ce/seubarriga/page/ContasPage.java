@@ -18,6 +18,9 @@ public class ContasPage extends BasePage {
 		return obterTexto(By.xpath("//div[@class='alert alert-danger']"));
 	}
 	public void botaoEditar() {
-		clicar(By.xpath("//tr//a/span[@class='glyphicon glyphicon-edit']"));
+		clicar(By.xpath("//span[@class='glyphicon glyphicon-edit']"));
+	}
+	public void botaoRemover() {
+		clicar(By.xpath("//span[@class='glyphicon glyphicon-remove-circle']"));
 	}
 }
