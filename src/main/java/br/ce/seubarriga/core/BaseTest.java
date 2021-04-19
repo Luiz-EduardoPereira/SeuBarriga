@@ -1,7 +1,7 @@
-package br.ce.luiz.core;
+package br.ce.seubarriga.core;
 
-import static br.ce.luiz.core.DriverFactory.getDriver;
-import static br.ce.luiz.core.DriverFactory.killDriver;
+import static br.ce.seubarriga.core.DriverFactory.getDriver;
+import static br.ce.seubarriga.core.DriverFactory.killDriver;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import br.ce.luiz.page.LoginPage;
+import br.ce.seubarriga.page.LoginPage;
 
 public class BaseTest {
 	private LoginPage page = new LoginPage();

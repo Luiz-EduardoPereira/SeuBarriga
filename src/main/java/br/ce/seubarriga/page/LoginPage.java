@@ -1,10 +1,10 @@
-package br.ce.luiz.page;
+package br.ce.seubarriga.page;
 
-import static br.ce.luiz.core.DriverFactory.getDriver;
+import static br.ce.seubarriga.core.DriverFactory.getDriver;
 
 import org.openqa.selenium.By;
 
-import br.ce.luiz.core.BasePage;
+import br.ce.seubarriga.core.BasePage;
 
 public class LoginPage extends BasePage {
 	public void acessarTelaInicial() {

@@ -1,6 +1,6 @@
-package br.ce.luiz.core;
+package br.ce.seubarriga.core;
 
-import static br.ce.luiz.core.DriverFactory.getDriver;
+import static br.ce.seubarriga.core.DriverFactory.getDriver;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package br.ce.luiz.core;
+package br.ce.seubarriga.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

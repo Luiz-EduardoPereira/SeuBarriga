@@ -1,4 +1,4 @@
-package br.ce.luiz.core;
+package br.ce.seubarriga.core;
 
 public class Propriedades {
 	public static boolean FECHAR_BROWSER = false;
