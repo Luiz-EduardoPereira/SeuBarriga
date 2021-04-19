@@ -14,4 +14,7 @@ public class ContasPage extends BasePage {
 	public String obterMensagemSucesso() {
 		return obterTexto(By.xpath("//div[@class='alert alert-success']"));
 	}
+	public void botaoEditar() {
+		clicar(By.xpath("//tr//a/span[@class='glyphicon glyphicon-edit']"));
+	}
 }

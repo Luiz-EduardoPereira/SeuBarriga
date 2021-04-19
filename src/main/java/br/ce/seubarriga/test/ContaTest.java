@@ -18,4 +18,12 @@ public class ContaTest extends BaseTest {
 		contasPage.salvar();
 		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
 	}
+	@Test
+	public void testAlterarConta() {
+		menuPage.acessarTelaAlterarConta();
+		contasPage.botaoEditar();
+		contasPage.setNome("Nubank");
+		contasPage.salvar();
+		Assert.assertEquals("Conta alterada com sucesso!", contasPage.obterMensagemSucesso());
+	}
 }
