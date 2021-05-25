@@ -18,6 +18,7 @@ public class ContaTest extends BaseTest {
 		contasPage.salvar();
 		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
 	}
+
 	@Test
 	public void testAlterarConta() {
 		menuPage.acessarTelaListarContas();
@@ -26,6 +27,7 @@ public class ContaTest extends BaseTest {
 		contasPage.salvar();
 		Assert.assertEquals("Conta alterada com sucesso!", contasPage.obterMensagemSucesso());
 	}
+
 	@Test
 	public void testCriarContaMesmoNome() {
 		menuPage.acessarTelaInserirConta();
@@ -33,16 +35,41 @@ public class ContaTest extends BaseTest {
 		contasPage.salvar();
 		Assert.assertEquals("Já existe uma conta com esse nome!", contasPage.obterMensagemErro());
 	}
+
 	@Test
 	public void testRemoverConta() {
 		menuPage.acessarTelaListarContas();
 		contasPage.botaoRemover();
 		Assert.assertEquals("Conta removida com sucesso!", contasPage.obterMensagemSucesso());
 	}
+
 	@Test
 	public void testInserirContaVazia() {
 		menuPage.acessarTelaInserirConta();
 		contasPage.salvar();
 		Assert.assertEquals("Informe o nome da conta", contasPage.obterMensagemErro());
+	}
+
+	@Test
+	public void testValidarCamposTelaInserirConta() {
+		menuPage.acessarTelaInserirConta();
+		contasPage.buscarLabelNome();
+		contasPage.buscarInputCampoNome();
+		contasPage.buscarBotaoSalvar();
+	}
+
+	@Test
+	// Estudar melhor esse método
+	public void testValidarCamposTelaListarConta() {
+		menuPage.acessarTelaListarContas();
+		Assert.assertEquals("Conta", contasPage.buscarCabecalhoConta());
+		Assert.assertEquals("Ações", contasPage.buscarCabecalhoAcoes());
+		Assert.assertEquals("Nubank", contasPage.buscarListagemConta());
+		contasPage.buscarBotaoRemover();
+		contasPage.buscarBotaoEditar();
+		/*
+		 * Assert.assertFalse(contasPage.buscarBotaoEditar());
+		 * contasPage.buscarBotaoRemover();
+		 */
 	}
 }

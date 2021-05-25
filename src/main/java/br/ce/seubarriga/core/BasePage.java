@@ -9,7 +9,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
@@ -26,6 +28,10 @@ public class BasePage {
 		return getDriver().findElement(By.id(id)).getAttribute("value");
 	}
 
+	public String obterTextos(By by) {
+		return getDriver().findElement(by).getAttribute("innerHTML");
+	}
+
 	public String obterTexto(By by) {
 		return getDriver().findElement(by).getText();
 	}
@@ -36,6 +42,10 @@ public class BasePage {
 
 	public void limparText(String id) {
 		getDriver().findElement(By.id(id)).clear();
+	}
+
+	public void buscarCampo(By by) {
+		getDriver().findElement(by);
 	}
 
 	public boolean checarMarcacao(By by) {
@@ -195,4 +205,9 @@ public class BasePage {
 		return idColuna;
 	}
 
+	public WebElement buscarElemento(By by, int segundos) {
+		WebDriverWait wait = new WebDriverWait(getDriver(), segundos);
+		wait.until(ExpectedConditions.presenceOfElementLocated(by));
+		return getDriver().findElement(by);
+	}
 }
