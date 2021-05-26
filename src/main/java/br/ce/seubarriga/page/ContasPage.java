@@ -49,13 +49,12 @@ public class ContasPage extends BasePage {
 		return obterTexto(By.xpath("//table[@id='tabelaContas']//tr/th[.='Ações']"));
 	}
 
-	public String buscarListagemConta() {
-		return obterTextos(By.xpath("//table[@id='tabelaContas']//tr/td[1]"));
+	public String buscarListagemConta(String Conta) {
+		return obterTextos(By.xpath("//table[@id='tabelaContas']//tr/td[.='"+Conta+"']"));
 	}
 
 	public void buscarBotaoEditar() {
 		buscarElemento(By.xpath("//table[@id= 'tabelaContas']//tr/td[2]//span[@class='glyphicon glyphicon-edit']"), 5);
-		System.out.println("Validado");
 	}
 
 	public void buscarBotaoRemover() {

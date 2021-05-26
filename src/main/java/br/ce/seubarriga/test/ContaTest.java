@@ -64,12 +64,9 @@ public class ContaTest extends BaseTest {
 		menuPage.acessarTelaListarContas();
 		Assert.assertEquals("Conta", contasPage.buscarCabecalhoConta());
 		Assert.assertEquals("Ações", contasPage.buscarCabecalhoAcoes());
-		Assert.assertEquals("Nubank", contasPage.buscarListagemConta());
+		Assert.assertEquals("Nubank", contasPage.buscarListagemConta("Nubank"));
+		Assert.assertEquals("Banco do Brasil", contasPage.buscarListagemConta("Banco do Brasil"));
 		contasPage.buscarBotaoRemover();
 		contasPage.buscarBotaoEditar();
-		/*
-		 * Assert.assertFalse(contasPage.buscarBotaoEditar());
-		 * contasPage.buscarBotaoRemover();
-		 */
 	}
 }
