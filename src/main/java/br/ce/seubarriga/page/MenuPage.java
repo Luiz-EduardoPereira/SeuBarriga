@@ -14,4 +14,7 @@ public class MenuPage extends BasePage {
 		clicar(By.partialLinkText("Contas"));
 		clicar(By.partialLinkText("Listar"));
 	}
+	public void acessarTelaCriarMovimentacao() {
+		clicar(By.partialLinkText("Criar Movimentação"));
+	}
 }
