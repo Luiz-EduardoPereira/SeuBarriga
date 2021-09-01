@@ -10,11 +10,12 @@ import br.ce.seubarriga.page.MenuPage;
 public class ContaTest extends BaseTest {
 	MenuPage menuPage = new MenuPage();
 	ContasPage contasPage = new ContasPage();
-
+	String primeiroBanco = "Banco do Brasil";
+	String segundoBanco = "Nubank";
 	@Test
 	public void testInserirConta() {
 		menuPage.acessarTelaInserirConta();
-		contasPage.setNome("Banco do Brasil");
+		contasPage.setNome(primeiroBanco);
 		contasPage.salvar();
 		Assert.assertEquals("Conta adicionada com sucesso!", contasPage.obterMensagemSucesso());
 	}
@@ -23,7 +24,7 @@ public class ContaTest extends BaseTest {
 	public void testAlterarConta() {
 		menuPage.acessarTelaListarContas();
 		contasPage.botaoEditar();
-		contasPage.setNome("Nubank");
+		contasPage.setNome(segundoBanco);
 		contasPage.salvar();
 		Assert.assertEquals("Conta alterada com sucesso!", contasPage.obterMensagemSucesso());
 	}
@@ -31,7 +32,7 @@ public class ContaTest extends BaseTest {
 	@Test
 	public void testCriarContaMesmoNome() {
 		menuPage.acessarTelaInserirConta();
-		contasPage.setNome("Nubank");
+		contasPage.setNome(segundoBanco);
 		contasPage.salvar();
 		Assert.assertEquals("Já existe uma conta com esse nome!", contasPage.obterMensagemErro());
 	}
@@ -40,7 +41,7 @@ public class ContaTest extends BaseTest {
 	public void testRemoverConta() {
 		menuPage.acessarTelaListarContas();
 		contasPage.botaoRemover();
-		Assert.assertEquals("Conta removida com sucesso!", contasPage.obterMensagemSucesso());
+			Assert.assertEquals("Conta removida com sucesso!", contasPage.obterMensagemSucesso());
 	}
 
 	@Test
@@ -59,13 +60,12 @@ public class ContaTest extends BaseTest {
 	}
 
 	@Test
-	// Estudar melhor esse método
 	public void testValidarCamposTelaListarConta() {
 		menuPage.acessarTelaListarContas();
 		Assert.assertEquals("Conta", contasPage.buscarCabecalhoConta());
 		Assert.assertEquals("Ações", contasPage.buscarCabecalhoAcoes());
-		Assert.assertEquals("Nubank", contasPage.buscarListagemConta("Nubank"));
-		Assert.assertEquals("Banco do Brasil", contasPage.buscarListagemConta("Banco do Brasil"));
+		Assert.assertEquals(segundoBanco, contasPage.buscarListagemConta(segundoBanco));
+		Assert.assertEquals(primeiroBanco, contasPage.buscarListagemConta(primeiroBanco));
 		contasPage.buscarBotaoRemover();
 		contasPage.buscarBotaoEditar();
 	}
