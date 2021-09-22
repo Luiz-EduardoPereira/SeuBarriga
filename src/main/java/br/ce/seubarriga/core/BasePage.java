@@ -210,4 +210,7 @@ public class BasePage {
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		return getDriver().findElement(by);
 	}
+	public String guia() {
+		return getDriver().getTitle();
+	}
 }

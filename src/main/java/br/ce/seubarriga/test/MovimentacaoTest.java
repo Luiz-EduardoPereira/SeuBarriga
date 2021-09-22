@@ -1,5 +1,6 @@
 package br.ce.seubarriga.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import br.ce.seubarriga.core.BaseTest;
@@ -11,12 +12,21 @@ public class MovimentacaoTest extends BaseTest {
 	MovimentacaoPage movimentacaoPage = new MovimentacaoPage();
 	
 	@Test
-	public void testAcessarTelaCriarMovimentacao() {
+	public void acessarTelaCriarMovimentacao() {
 		menuPage.acessarTelaCriarMovimentacao();
+		Assert.assertEquals("Seu Barriga - Movimentações", movimentacaoPage.tituloPagina());
+		
 	}
 	@Test
-	public void testvalidarObrigatoriedade() {
+	public void validarObrigatoriedadeDosCampos() {
 		menuPage.acessarTelaCriarMovimentacao();
 		movimentacaoPage.salvar();
+		Assert.assertEquals("Data da Movimentação é obrigatório", movimentacaoPage.msgErroGenerica("Data da Movimentação"));
+		Assert.assertEquals("Data do pagamento é obrigatório", movimentacaoPage.msgErroGenerica("Data do pagamento"));
+		Assert.assertEquals("Descrição é obrigatório", movimentacaoPage.msgErroGenerica("Descrição"));
+		Assert.assertEquals("Interessado é obrigatório", movimentacaoPage.msgErroGenerica("Interessado"));
+		Assert.assertEquals("Valor é obrigatório", movimentacaoPage.msgErroGenerica("Valor"));
+		Assert.assertEquals("Valor deve ser um número", movimentacaoPage.msgErroGenerica("Valor deve"));
 	}
 }
+

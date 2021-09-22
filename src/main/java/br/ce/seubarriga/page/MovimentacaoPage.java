@@ -8,5 +8,13 @@ public class MovimentacaoPage extends BasePage {
 	public void salvar() {
 		clicar(By.xpath("//button[.='Salvar']"));
 	}
-	public String msg
+	public String msgErroGenerica(String msg) {
+		return obterTexto(By.xpath("//li[contains(.,'"+msg+"')]"));	
+	}
+	public String tituloPagina() {
+		return guia();
+	}
 }
+
+
+
